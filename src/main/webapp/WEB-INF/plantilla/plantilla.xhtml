@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">	 
+	 
+<h:head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <h:outputStylesheet library="css" name="style.css" />
+  <title><ui:insert name="title" /></title>
+</h:head>
+
+<h:body>
+	<div id="layout">		
+	
+		<!-- Panel -->
+		<p:panel id="encabezado">
+	
+			<!-- la sección "encabezado" de la plantilla está en el header del panel -->
+			<f:facet name="header">
+				<ui:insert name="encabezado">Encabezado</ui:insert>
+			</f:facet>			
+
+			<!-- la sección contenido de la plantilla esta dentro del panel -->
+			<ui:insert name="contenido">Contenido</ui:insert>
+			
+			<!-- la sección "pie-pagina" de la plantilla está en el footer del planel -->
+			<f:facet name="footer">
+				<ui:insert name="pie-pagina"><a href="#">© Ejemplo</a></ui:insert>
+			</f:facet>
+
+		</p:panel>
+	</div>
+</h:body>
+
+</html>

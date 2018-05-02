@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Ejemplo de Hola Mundo</title>
+</h:head>
+
+<h:body>
+<ui:composition template="/WEB-INF/plantilla/plantilla.xhtml">
+
+<ui:define name="encabezado">
+	Ejemplo de Hola Mundo
+</ui:define>
+
+<ui:define name="contenido">
+	<h:form>
+
+		<h:panelGrid columns="2" cellpadding="4">
+			<h:outputText value="Nombre: " />
+			<p:inputText value="#{holaMundo.nombre}" />
+
+			<h:outputText value="Apellido: " />
+			<p:inputText value="#{holaMundo.apellido}" />
+
+			<!-- Al hacer click, mostrar 'dialogoSaludo' -->
+			<p:commandButton value="Enviar" update="saludo"
+				oncomplete="PF('dialogoSaludo').show()" />
+		</h:panelGrid>
+
+		<!--  Caja de diálogo 'dialogoSaludo' -->
+		<p:dialog header="Saludo" widgetVar="dialogoSaludo" modal="true"
+			resizable="false">
+			<h:panelGrid id="saludo" columns="1" cellpadding="4">
+				<h:outputText value="#{holaMundo.mostrarSaludo()}" />
+			</h:panelGrid>
+		</p:dialog>
+
+	</h:form>
+</ui:define>
+
+</ui:composition>
+</h:body>
+
+</html>
